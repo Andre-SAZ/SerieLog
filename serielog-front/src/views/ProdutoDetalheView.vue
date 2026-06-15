@@ -7,7 +7,7 @@
 
   onMounted(async () => {
     const id = route.params.id;
-    const res = await fetch(`https://api.exemplo.com/products/${id}`);
+    const res = await fetch(`http://localhost:3000/series/${id}`);
     produto.value = await res.json();
   });
 </script>

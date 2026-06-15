@@ -4,7 +4,7 @@
   const router = useRouter();
 
   async function salvar(produto) {
-    await fetch("https://api.exemplo.com/products", {
+    await fetch("http://localhost:3000/series", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(produto),

@@ -1,7 +1,7 @@
-// src/router/index.js
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import NovaPlaylistView from "../views/NovaPlaylistView.vue";
+import ProdutoDetalheView from "../views/ProdutoDetalheView.vue"; 
 
 const routes = [
   { path: "/", component: HomeView },

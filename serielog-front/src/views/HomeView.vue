@@ -1,16 +1,25 @@
 <template>
-  <ul>
-    <li v-for="musica in musicas" :key="musica.id">{{ musica.titulo }}</li>
-  </ul>
+  <div>
+    <h2>Minhas Séries</h2>
+    <ul>
+      <li v-for="serie in series" :key="serie.id">
+        {{ serie.titulo }} - Nota: {{ serie.nota }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup>
   import { ref, onMounted } from "vue";
 
-  const musicas = ref([]);
+  const series = ref([]);
 
   onMounted(async () => {
-    const res = await fetch("https://api.exemplo.com/musicas");
-    musicas.value = await res.json();
+    try {
+      const res = await fetch("http://localhost:3000/series");
+      series.value = await res.json();
+    } catch (erro) {
+      console.log("Erro ao buscar as séries:", erro);
+    }
   });
 </script>

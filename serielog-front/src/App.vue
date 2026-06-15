@@ -14,15 +14,16 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped>
+nav {
+  display: flex;
+  gap: 20px; /* Cria um espaço de 20px entre os links */
+  margin-bottom: 20px; /* Dá um espaço entre o menu e a lista de séries */
+  justify-content: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
