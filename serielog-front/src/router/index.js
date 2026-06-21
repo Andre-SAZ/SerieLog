@@ -1,17 +1,29 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import NovaPlaylistView from "../views/NovaPlaylistView.vue";
-import ProdutoDetalheView from "../views/ProdutoDetalheView.vue"; 
+import SerieNovaView from "../views/SerieNovaView.vue";
+import SerieDetalheView from "../views/SerieDetalheView.vue";
 
 const routes = [
-  { path: "/", component: HomeView },
-  { path: "/playlists/nova", component: NovaPlaylistView },
-  { path: "/products/:id", component: ProdutoDetalheView }
+  {
+    path: "/",
+    name: "home",
+    component: HomeView
+  },
+  {
+    path: "/series/nova",
+    name: "nova-serie",
+    component: SerieNovaView
+  },
+  {
+    path: "/series/:id",
+    name: "detalhe-serie",
+    component: SerieDetalheView
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 });
 
 export default router;

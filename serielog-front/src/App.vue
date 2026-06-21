@@ -1,29 +1,52 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <nav>
-    <RouterLink to="/">Início</RouterLink>
-    <RouterLink to="/playlists/nova">Nova Playlist</RouterLink>
-  </nav>
+  <div class="app-container">
+    <header class="netflix-header">
+      <h1 class="logo">SERIELOG</h1>
+      <nav>
+        <router-link to="/">Início</router-link>
+        <router-link to="/series/nova">Adicionar Série</router-link>
+      </nav>
+    </header>
 
-  <RouterView />
+    <main class="main-content">
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
 
 <style scoped>
-nav {
+.netflix-header {
   display: flex;
-  gap: 20px; /* Cria um espaço de 20px entre os links */
-  margin-bottom: 20px; /* Dá um espaço entre o menu e a lista de séries */
-  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(20,20,20,0));
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+  color: var(--netflix-red);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-right: 40px;
+}
+
+nav a {
+  color: #e5e5e5;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav a:hover, nav a.router-link-active {
+  color: #fff;
+  font-weight: bold;
+}
+
+.main-content {
+  padding: 0 40px 40px 40px;
 }
 </style>
