@@ -31,13 +31,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+
+// 1. Prepara o formulário para receber os dados de uma série já existente (se houver)
+const props = defineProps({
+  serieInicial: {
+    type: Object,
+    default: () => ({ titulo: '', genero: '', ano: null, nota: null, assistida: false })
+  }
+});
 
 const emit = defineEmits(['salvar']);
 
-const dados = ref({
-  titulo: '', genero: '', ano: null, nota: null, assistida: false
-});
+// 2. Cria os dados do formulário baseados na prop recebida
+const dados = ref({ ...props.serieInicial });
+
+// 3. Fica observando: se a série demorar um pouquinho para carregar da API, 
+// ele atualiza os campos automaticamente assim que ela chegar.
+watch(() => props.serieInicial, (novosDados) => {
+  dados.value = { ...novosDados };
+}, { deep: true, immediate: true });
 
 function enviarFormulario() {
   emit('salvar', dados.value);

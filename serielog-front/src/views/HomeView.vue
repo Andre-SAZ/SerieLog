@@ -28,10 +28,13 @@ const filtroAtual = ref('todas');
 
 onMounted(async () => {
   try {
+    console.log("1. Tentando conectar com a API...");
     const res = await fetch('http://localhost:3000/series');
-    series.value = await res.json();
+    const data = await res.json();
+    console.log("2. Dados recebidos da API:", data);
+    series.value = data;
   } catch (erro) {
-    console.error("Falha ao comunicar com a API local:", erro);
+    console.error("ERRO: O servidor da API parece estar desligado!", erro);
   }
 });
 
